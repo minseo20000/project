@@ -135,6 +135,7 @@ module ddr_ctrl(
 			case(curr_state)
 			MRS: begin
 				csn =0;
+				actn=1;
 				rasn=0;
 				casn=0;
 				wen =0;
@@ -142,20 +143,30 @@ module ddr_ctrl(
 			ACT: begin
 				csn =0;
 				actn=0;
+				rasn=1;
+				casn=1;
+				wen =1;
 			end
 			WR : begin
 				csn =0;
+				actn=1;
+				rasn=1;
 				casn=0;
 				wen =0;
 			end
 			RD : begin
-				csn =0;
+		        csn =0;
+				actn=1;
+				rasn=1;
 				casn=0;
+				wen =1;
 			end
 			PRE: begin
 				csn =0;
+				actn=1;
 				rasn=0;
-				casn=0;
+				casn=1;
+				wen=0;
 			end
 			endcase
 		end
@@ -163,6 +174,7 @@ module ddr_ctrl(
 			case(curr_state)
 			MRS: begin
 				csn =0;
+				actn=1;
 				rasn=0;
 				casn=0;
 				wen =0;
